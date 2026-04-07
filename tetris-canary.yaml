@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tetris-canary
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -10,11 +11,11 @@ spec:
   template:
     metadata:
       labels:
-        app: tetris-canary
+        app: tetris      # ← SHARED service selector
         version: v7
     spec:
       containers:
       - name: tetris
-        image: surendrak17/tetrisv1:7  # Your NEW image/version
+        image: surendrak17/tetrisv1:7
         ports:
         - containerPort: 3000
