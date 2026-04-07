@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tetris-canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tetris-canary
+  template:
+    metadata:
+      labels:
+        app: tetris-canary
+        version: v7
+    spec:
+      containers:
+      - name: tetris
+        image: surendrak17/tetrisv1:7  # Your NEW image/version
+        ports:
+        - containerPort: 3000
