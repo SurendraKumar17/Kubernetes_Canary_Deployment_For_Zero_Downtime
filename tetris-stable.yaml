@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: tetris-stable  # Pod label
+        app: tetris      # ← SHARED service selector
         version: v2
     spec:
       containers:
@@ -27,7 +27,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: tetris-stable  # ← FIXED! Matches stable pods
+    app: tetris        # ← Matches BOTH deployments
   type: NodePort
   ports:
   - protocol: TCP
