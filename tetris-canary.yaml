@@ -19,3 +19,5 @@ spec:
         image: surendrak17/tetrisv1:7
         ports:
         - containerPort: 3000
+
+        #kubectl scale deployment tetris-canary --replicas=1 -- Command to scale up the pods for replica based approach 
